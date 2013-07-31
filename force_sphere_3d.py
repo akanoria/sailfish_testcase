@@ -35,7 +35,7 @@ def sphere_diam(width, bc):
     """The actual sphere diameter in lattice units."""
     return (width - 1 - 2 * bc.location) / 2.0
 
-class LBMGeoSphere(geo.LBMGeo3D):
+class SphereBlock(Subdomain3D):
     """3D pipe with a spherical obstacle in the middle.  Flow in the X direction."""
     maxv = 0.01
     ic_fields = False
