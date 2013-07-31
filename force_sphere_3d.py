@@ -5,6 +5,12 @@ import math
 import numpy as np
 
 from sailfish import geo, lb_single
+#from sailfish.geo import EqualSubdomainsGeometry3D
+#from sailfish.subdomain import Subdomain3D
+#from sailfish.node_type import NTFullBBWall
+#from sailfish.controller import LBSimulationController
+#from sailfish.lb_single import LBFluidSim
+#from sailfish.lb_base import LBForcedSim
 
 import optparse
 
@@ -109,7 +115,8 @@ class SphereBlock(Subdomain3D):
         bc = geo.get_bc(self.options.bc_velocity)
         return self.width - 1 - 2.0 * bc.location
 
-class LSphereSim(lb_single.FluidLBMSim):
+#class LSphereSim(lb_single.FluidLBMSim):
+class SphereSimulation(LBFluidSim,LBForcedSim):
     filename = 'sphere3d'
 
     def __init__(self, geo_class, defaults={}, args=sys.argv[1:]):
@@ -195,5 +202,6 @@ class LSphereSim(lb_single.FluidLBMSim):
             self._timed_print(coeff)
 
 if __name__ == '__main__':
-    sim = LSphereSim(LBMGeoSphere)
+    #sim = LSphereSim(LBMGeoSphere)
+    sim = SphereSimulation(SphereBlock)
     sim.run()
