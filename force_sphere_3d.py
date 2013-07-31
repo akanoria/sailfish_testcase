@@ -4,8 +4,8 @@ import sys
 import math
 import numpy as np
 
-from sailfish import geo, lb_single
-#from sailfish.geo import EqualSubdomainsGeometry3D
+-from sailfish import geo, lb_single
++from sailfish.geo import EqualSubdomainsGeometry3D
 #from sailfish.subdomain import Subdomain3D
 #from sailfish.node_type import NTFullBBWall
 #from sailfish.controller import LBSimulationController
